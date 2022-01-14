@@ -1,0 +1,38 @@
+body {
+  background-color: wheat;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  background: black;
+  border-radius: 0.5rem;
+}
+.heading {
+  padding: 1rem;
+  color: green;
+  font-size: 2rem;
+}
+
+#start,
+#stop {
+  position: relative;
+  margin: 2rem;
+  left: 2.5rem;
+  background-color: wheat;
+  border: none;
+  color: green;
+  padding: 0.25rem 0.8rem;
+  border-radius: 0.2rem;
+  font-weight: 700;
+}
+
+.container p {
+  margin-left: 6rem;
+  font-size: 1.2rem;
+  color: wheat;
+  font-weight: 700;
+}

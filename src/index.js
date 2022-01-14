@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  const [count, setCount] = useState(0);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  useEffect(() => {
+    const startBtn = document.getElementById("start");
+    startBtn.addEventListener("click", () => {
+      let update = setInterval(() => {
+        setCount((count) => count + 1);
+      }, 1000);
+
+      const stopMe = () => {
+        clearInterval(update);
+      };
+
+      const stopBtn = document.getElementById("stop");
+
+      stopBtn.addEventListener("click", () => {
+        return stopMe();
+      });
+    });
+  }, []);
+
+  return (
+    <div className="container">
+      <h1 className="heading">Counter Application</h1>
+      <p>Number Count: {count}</p>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
